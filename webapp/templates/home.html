@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div id="test">
+		<h1>Data Analysis</h1>
+{#		<p>Some test content, go fuck yourself</p>#}
+	</div>
+	<div class="dashboard">
+		{% for key, value in dashboard_values.items() %}
+		<div class="dash-item">
+			<svg class="h2-replacement" preserveAspectRatio="xMidYMin" viewBox="0 0 32 3">
+				<text>{{ key }}</text>
+			</svg>
+{#			<h2>{{ key }}</h2>#}
+			<div class="multi-disp">
+			{% set value_fontsize, digits = font_size_lookup(value) %}
+			{% for key2, value2 in value.items() %}
+				{% if value2[1] == "int" %}
+					<svg class="circle-display" preserveAspectRatio="xMidYMin" viewBox="0 0 16 16">
+						<path d="{{ describeArc(8, 8, 7, 0, 361) }} Z" stroke="white" fill="none"></path>
+						<text class="circle-display-value" id="{{ key2 }}" font-size="{{ value_fontsize }}">{{ value2[0] }}</text>
+						{% if len(value) > 1 %}<text class="circle-display-label">{{ key2 }}</text>{% endif %}
+					</svg>
+				{% elif value2[1] == "scale" %}
+					<svg class="circular-scale" preserveAspectRatio="xMidYMin" viewBox="0 0 16 16">
+						<path d="{{ describeArc(8, 8, 7, 135, 405) }}" stroke="black" fill="none" class="bg-path"></path>
+						<path id="{{ key2 + "-circular-scale" }}" d="{{ describeArc(8, 8, 7, 135, 135+(270*(value2[0]/value2[2]))) }}"
+						      class="fg-path"></path>
+						<text class="circle-scale-value" id="{{ key2 }}" font-size="{{ value_fontsize }}">{{ value2[0] }}</text>
+						<text class="circle-scale-out-of">/{{ "{:.1f}".format(value2[2]) }}</text>
+						<text class="circle-scale-caption">{{ key2 }}</text>
+					</svg>
+				{% elif value2[1] == "timestamp" %}
+					<svg id="{{ value2[2] }}" class="circle-display" preserveAspectRatio="xMidYMin" viewBox="0 0 16 16">
+						<path d="{{ describeArc(8, 8, 7, 0, 361) }} Z" stroke="white" fill="none"></path>
+						<text id="{{ value2[2] }}-text" class="circle-display-value" font-size="18%">
+							<script>
+								let {{ value2[2] }} = new Date("{{ value2[0] }}")
+								document.getElementById("{{ value2[2] }}-text").innerHTML = {{ value2[2] }}.toTimeString().substr(0, 8)
+							</script>
+						</text>
+						{% if len(value) > 1 %}<text class="circle-display-label">{{ key2 }}</text>{% endif %}
+					</svg>
+				{% elif value2[1] == "countdown" %}
+					<svg class="circular-countdown" preserveAspectRatio="xMidYMin" id="{{ value2[3] }}"
+					     viewBox="0 0 16 16" lastTime="{{ value2[2] }}" nextTime="{{ value2[0] }}">
+						<path d="{{ describeArc(8, 8, 7, 135, 405) }}" class="bg-path"></path>
+						<path id="{{ value2[3] }}-curve" d="{{ describeArc(8, 8, 7, 135, 135) }}" class="fg-path"></path>
+						<text id="{{ value2[3] }}-value" class="circle-countdown-value" font-size="{{ value_fontsize }}">
+							<script>
+								countdown2("{{ value2[3] }}", {{ value2[2] }}, {{ value2[0] }})
+								let {{ value2[3] }} = new Date();
+								{{ value2[3] }}.setTime({{ value2[3] }}.getTime() + {{ value2[2] }}*1000);
+								document.getElementById("{{ value2[3] }}-text").innerHTML = {{ value2[3] }}.toTimeString().substr(0, 8);
+							</script>
+						</text>
+						<text id="{{ value2[3] }}-out-of" class="circle-countdown-out-of">
+{#							{{ dt.fromtimestamp(value2[0]).strftime("%H:%M:%S") }}#}
+							<script>
+								let {{ value2[3] }}_max = new Date();
+								{{ value2[3] }}_max.setTime({{ value2[3] }}_max.getTime() + {{ value2[2] }}*1000);
+								document.getElementById("{{ value2[3] }}-out-of").innerHTML = {{ value2[3] }}_max.toTimeString().substr(0, 8);
+							</script>
+						</text>
+						<text class="circle-countdown-caption">{{ key2 }}</text>
+					</svg>
+					<script>countdown()</script>
+				{% endif %}
+			{% endfor %}
+			</div>
+		</div>
+		{% endfor %}
+{#		<div class="dash-item">#}
+{#			<h2>Test2</h2>#}
+{#		</div>#}
+{#		<div class="dash-item">#}
+{#			<h2>Test3</h2>#}
+{#		</div>#}
+	</div>
+{#	<!--<script type="text/javascript" src="{{ url_for('js', filename='jquery.fittext.js') }}"></script>-->#}
+{#<!--	<script src="{{ url_for('js', filename='ResizeSensor.js') }}"></script>-->#}
+{#<!--	<script src="{{ url_for('js', filename='ElementQueries.js') }}"></script>-->#}
+{#<!--	<script type="text/javascript" src="{{ url_for('js', filename='dashboard.js') }}"></script>-->#}
+	<input type="hidden" id="luc" value="{{ ",".join(luc) }}">
+{% endblock content %}

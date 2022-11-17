@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ title }} - Soci.Stream.</title>
+	<!--suppress JSUnresolvedLibraryURL -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.min.js"></script>
+	<!-- import site javascript -->
+	{% set layout_js_files = ["scripts.js", "navbar.js"] %}
+	{% if template_js_files is defined %}
+	    {% set all_js_files = template_js_files + layout_js_files %}
+	{% else %}
+	    {% set all_js_files = layout_js_files %}
+	{% endif %}
+	<!--suppress HtmlUnknownTarget -->
+	<script type="text/javascript" src="/static?t=js&q={{ "+".join(all_js_files) }}"></script>
+
+	<!-- import site css -->
+	{% if not hide_nav %}
+		{% set layout_css_files = ["style.css", "navbar.css", "dropdownicon.css"] %}
+	{% else %}
+		{% set layout_css_files = ["style.css"] %}
+	{% endif %}
+	{% if template_css_files is defined %}
+	    {% set all_css_files = layout_css_files + template_css_files %}
+	{% else %}
+	    {% set all_css_files = layout_css_files %}
+	{% endif %}
+	<!--suppress HtmlUnknownTarget -->
+	<link rel="stylesheet" type="text/css" href="/static?t=css&q={{ "+".join(all_css_files) }}">
+
+	<!--get some fonts-->
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Bebas+Neue&family=Roboto" rel="stylesheet" comment="get all fonts in one request">
+
+	<!-- display flashed messages as alerts -->
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<!--suppress JSUnusedAssignment -->
+			<script>
+				let messages = {{ messages | safe }};
+				for (let i=0; i<messages.length; i++) {
+					alert(messages[i]);
+				}
+			</script>
+		{% endif %}
+	{% endwith %}
+</head>
+
+<body id="body" class="preload">
+	{% if not hide_nav %}
+		<div class="menubar">
+			<div class="top-bar">
+				<svg class="svg-logo big" viewBox="0 0 60 12">
+					<text class="big">
+						<tspan class="capital">S</tspan><tspan class="full">oci.</tspan><tspan class="capital">S</tspan><tspan class="full">tream.</tspan>
+					</text>
+				</svg>
+				<svg onclick="dropdown()" class="expand-icon collapsed" id="menu-icon" viewBox="0 0 70 70" preserveAspectRatio="xMidYMin">
+					<path d="m 20 10 l 30 0 a 10 -10 0 0 1 10 10 l 0 30 a 10 10 0 0 1 -10 10 l -30 0 a -10 10 0 0 1 -10 -10 l 0 -30 a 10 10 0 0 1 10 -10 z "></path>
+					<path class="line one" d="m 20 24 l 30 0"></path>
+					<path class="line two" d="m 20 35 l 30 0"></path>
+					<path class="line three" d="m 20 46 l 30 0"></path>
+				</svg>
+			</div>
+			<ul class="links dropHidden" id="dropLinks">
+				<li class="logo-outer">
+					<svg class="svg-logo small narrow_hide" viewBox="0 0 16 12">
+						<text class="small"><tspan class="capital">S</tspan>.<tspan class="capital">S</tspan>.</text>
+					</svg>
+					<svg class="svg-logo big" viewBox="0 0 60 12" preserveAspectRatio="xMidYMin">
+						<text class="big">
+							<tspan class="capital">S</tspan><tspan class="full">oci.</tspan><tspan class="capital">S</tspan><tspan class="full">tream.</tspan>
+						</text>
+					</svg>
+				</li>
+			    {% if current_user.is_authenticated %}
+				    {% set navtable = {"admin": nav.admin, "viewer": nav.viewer} %}
+					{% for item in navtable[current_user.role] %}
+						<li id="{{ 'active' if item.is_active else '' }}" class="{{ item.html_attrs['class'] }}">
+{#							<a id="text" href="{{ item.url }}"><img class="nav-icon" src="{{ url_for('icons', filename=item.html_attrs['icon']) }}" alt="Nav Bar Icon"/><span>{{ item.label }}</span></a>#}
+							<a id="text" href="{{ item.url }}">
+								<svg viewBox="0 0 8 8" preserveAspectRatio="xMidYMin" class="nav-icon" alt="Nav Bar Icon">{{ svg(item.html_attrs['icon']) | safe }}</svg>
+								<span>{{ item.label }}</span>
+							</a>
+						</li>
+					{% endfor %}
+				{% endif %}
+				<li class="bottom collapse">
+{#					<a id="text" href=# onclick="collapse()"><img class="nav-icon" src="{{ url_for('icons', filename="double-chevrons.svg") }}" id="collapse" alt="Collapse Nav Bar Icon"/><span> Collapse</span></a>#}
+					<a id="text" href=# onclick="collapse()">
+						<svg viewBox="0 0 16 16" preserveAspectRatio="xMidYMin" class="nav-icon" id="collapse" alt="Collapse Nav Bar Icon">{{ svg("double-chevrons.svg") | safe }}</svg>
+						<span> Collapse</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	{% endif %}
+	<div id="topmargin"></div>
+	<div id="content">
+		{% block content %}
+		{% endblock %}
+	</div>
+</body>
+<script>document.body.classList.remove('preload')</script>
+</html>

@@ -1,0 +1,32 @@
+body {
+	margin: 0;
+	/*font-family: "Roboto", sans-serif;*/
+	font-family: 'Poppins', sans-serif;
+	background: #1C1C1C;
+	height: 100vh;
+}
+
+
+.preload {
+	transition: all 0s linear !important;
+}
+
+body p {
+	color: white;
+}
+
+h2 {
+	margin-top: 0;
+	color: white;
+}
+
+h1 {
+	margin-top: 0;
+	color: white;
+}
+
+div#test {
+	padding: 5px 10px;
+}
+
+

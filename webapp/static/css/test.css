@@ -1,0 +1,63 @@
+svg {
+    max-height: 50vh;
+    max-width: 50vh;
+}
+
+svg path {
+    fill: none;
+    stroke: black;
+}
+
+path.dc {
+	fill: none;
+	stroke: black;
+}
+
+path.line {
+    stroke-width: 2.5%;
+    /*transition: transform 500ms, transform-origin 500ms, stroke-opacity 500ms;*/
+    transition: all 500ms;
+}
+
+svg.expand-icon.cross path.line.one {transform-origin: calc((50/70) * 100%) calc((25/70) * 100%);}
+svg.expand-icon.cross path.line.two {transform-origin: 50% 50%;}
+svg.expand-icon.cross path.line.three {transform-origin: calc((50/70) * 100%) calc((45/70) * 100%);}
+
+path.line.one.arrow {transform-origin: calc((35/70) * 100%) calc((25/70) * 100%);}
+path.line.two.arrow {transform-origin: calc((50/70) * 100%) calc((35/70) * 100%);}
+path.line.three.arrow {transform-origin: calc((20/70) * 100%) calc((45/70) * 100%);}
+
+
+svg path.line.one.arrow{
+    transform-origin: calc((35/70) * 100%) calc((25/70) * 100%);
+    transform:  translateY(14%) rotate(90deg);
+}
+
+svg path.line.two.arrow{
+    transform-origin: calc((50/70) * 100%) calc((35/70) * 100%);
+    transform:  rotate(-45deg) scaleX(0.73);
+}
+
+svg path.line.three.arrow{
+    transform-origin: calc((20/70) * 100%) calc((45/70) * 100%);
+    transform: translateY(calc((-10/70) * 100%)) rotate(45deg) scaleX(0.73);
+}
+
+
+
+
+svg.cross:hover path.line.one {
+    transform-origin: calc((50/70) * 100%) calc((25/70) * 100%);
+    transform: rotate(-45deg) translateY(-5%) scaleX(1.18);
+}
+
+svg.cross:hover path.line.three {
+    transform-origin: calc((50/70) * 100%) calc((45/70) * 100%);
+    transform: rotate(45deg) translateY(5%) scaleX(1.18);
+}
+
+svg.cross:hover path.line.two {
+    transform-origin: 50% 50%;
+    /*transform: scale(0);*/
+    stroke-opacity: 0;
+}

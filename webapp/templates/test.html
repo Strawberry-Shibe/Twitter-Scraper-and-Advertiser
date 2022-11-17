@@ -1,0 +1,30 @@
+{#<svg class="cross" viewBox="0 0 70 70" preserveAspectRatio="xMidYMin">#}
+{#	<path d="m 20 10 l 30 0 a 10 -10 0 0 1 10 10 l 0 30 a 10 10 0 0 1 -10 10 l -30 0 a -10 10 0 0 1 -10 -10 l 0 -30 a 10 10 0 0 1 10 -10 z "></path>#}
+{#	<path class="line one arrow" d="m 20 25 l 30 0 "></path>#}
+{#	<path class="line two arrow" d="m 20 35 l 30 0"></path>#}
+{#	<path class="line three arrow" d="m 20 45 l 30 0"></path>#}
+{#	<path class="line" d="m 35 25 l 0 20"></path>#}
+{#</svg>#}
+{#<script src="https://cdn.socket.io/3.1.1/socket.io.min.js" integrity="sha384-gDaozqUvc4HTgo8iZjwth73C6dDDeOJsAgpxBcMpZYztUfjHXpzrpdrHRdVp8ySO" crossorigin="anonymous"></script>#}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.1/socket.io.min.js"></script>
+
+<h1 id="test">None</h1>
+
+<svg class="cross" viewBox="0 0 16 16" preserveAspectRatio="xMidYMin" width="50%">
+	{{ svg("double-chevrons.svg") | safe }}
+{#	{{ svg("logout.svg") | safe }}#}
+</svg>
+
+
+<!-- import site javascript -->
+{% set layout_js_files = ["scripts.js"] %}
+{% if template_js_files is defined %}
+    {% set all_js_files = layout_js_files + template_js_files %}
+{% else %}
+    {% set all_js_files = layout_js_files %}
+{% endif %}
+<script type="text/javascript" src="/static?t=js&q={{ "+".join(all_js_files) }}"></script>
+<link rel="stylesheet" href="/static?t=css&q=test.css">
+
+
+

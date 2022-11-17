@@ -1,0 +1,223 @@
+COUNTRY,Sentiment,CODE
+Afghanistan,4.77,AFG
+Albania,4.71,ALB
+Algeria,4.92,DZA
+American Samoa,4.28,ASM
+Andorra,4.88,AND
+Angola,3.12,AGO
+Anguilla,1.03,AIA
+Antigua and Barbuda,2.96,ATG
+Argentina,3.75,ARG
+Armenia,2.32,ARM
+Aruba,1.58,ABW
+Australia,1.26,AUS
+Austria,2.77,AUT
+Azerbaijan,2.89,AZE
+"Bahamas, The",4.97,BHM
+Bahrain,0.50,BHR
+Bangladesh,3.57,BGD
+Barbados,2.88,BRB
+Belarus,3.19,BLR
+Belgium,2.29,BEL
+Belize,1.93,BLZ
+Benin,1.36,BEN
+Bermuda,0.97,BMU
+Bhutan,3.71,BTN
+Bolivia,0.42,BOL
+Bosnia and Herzegovina,4.57,BIH
+Botswana,4.35,BWA
+Brazil,4.32,BRA
+British Virgin Islands,3.79,VGB
+Brunei,0.90,BRN
+Bulgaria,2.40,BGR
+Burkina Faso,1.05,BFA
+Burma,0.35,MMR
+Burundi,4.12,BDI
+Cabo Verde,1.10,CPV
+Cambodia,1.98,KHM
+Cameroon,1.50,CMR
+Canada,3.92,CAN
+Cayman Islands,3.13,CYM
+Central African Republic,2.96,CAF
+Chad,0.24,TCD
+Chile,3.63,CHL
+China,2.45,CHN
+Colombia,0.52,COL
+Comoros,3.74,COM
+"Congo, Democratic Republic of the",0.17,COD
+"Congo, Republic of the",3.89,COG
+Cook Islands,3.42,COK
+Costa Rica,3.31,CRI
+Cote d'Ivoire,0.93,CIV
+Croatia,0.38,HRV
+Cuba,0.07,CUB
+Curacao,1.39,CUW
+Cyprus,2.14,CYP
+Czech Republic,1.97,CZE
+Denmark,1.35,DNK
+Djibouti,4.78,DJI
+Dominica,1.48,DMA
+Dominican Republic,3.20,DOM
+Ecuador,2.13,ECU
+Egypt,0.46,EGY
+El Salvador,2.35,SLV
+Equatorial Guinea,0.74,GNQ
+Eritrea,0.67,ERI
+Estonia,0.59,EST
+Ethiopia,1.62,ETH
+Falkland Islands (Islas Malvinas),0.62,FLK
+Faroe Islands,4.10,FRO
+Fiji,2.28,FJI
+Finland,3.85,FIN
+France,2.54,FRA
+French Polynesia,3.73,PYF
+Gabon,4.54,GAB
+"Gambia, The",0.29,GMB
+Georgia,0.66,GEO
+Germany,4.98,DEU
+Ghana,1.40,GHA
+Gibraltar,5.00,GIB
+Greece,1.37,GRC
+Greenland,1.58,GRL
+Grenada,1.08,GRD
+Guam,1.70,GUM
+Guatemala,3.13,GTM
+Guernsey,1.81,GGY
+Guinea-Bissau,4.84,GNB
+Guinea,0.50,GIN
+Guyana,1.78,GUY
+Haiti,4.46,HTI
+Honduras,3.41,HND
+Hong Kong,4.44,HKG
+Hungary,2.59,HUN
+Iceland,0.76,ISL
+India,2.16,IND
+Indonesia,2.11,IDN
+Iran,2.50,IRN
+Iraq,1.53,IRQ
+Ireland,4.98,IRL
+Isle of Man,3.41,IMN
+Israel,2.77,ISR
+Italy,2.93,ITA
+Jamaica,0.50,JAM
+Japan,0.50,JPN
+Jersey,1.41,JEY
+Jordan,3.17,JOR
+Kazakhstan,1.09,KAZ
+Kenya,3.89,KEN
+Kiribati,0.32,KIR
+"Korea, North",0.01,PRK
+"Korea, South",4.89,KOR
+Kosovo,1.90,KSV
+Kuwait,2.54,KWT
+Kyrgyzstan,1.90,KGZ
+Laos,2.16,LAO
+Latvia,4.45,LVA
+Lebanon,3.23,LBN
+Lesotho,3.81,LSO
+Liberia,0.78,LBR
+Libya,2.39,LBY
+Liechtenstein,1.92,LIE
+Lithuania,1.40,LTU
+Luxembourg,2.98,LUX
+Macau,1.45,MAC
+Macedonia,0.74,MKD
+Madagascar,1.73,MDG
+Malawi,1.91,MWI
+Malaysia,4.66,MYS
+Maldives,1.36,MDV
+Mali,2.29,MLI
+Malta,3.79,MLT
+Marshall Islands,0.28,MHL
+Mauritania,2.07,MRT
+Mauritius,0.53,MUS
+Mexico,0.70,MEX
+"Micronesia, Federated States of",0.58,FSM
+Moldova,4.57,MDA
+Monaco,3.83,MCO
+Mongolia,1.99,MNG
+Montenegro,1.90,MNE
+Morocco,4.61,MAR
+Mozambique,3.70,MOZ
+Namibia,1.80,NAM
+Nepal,4.20,NPL
+Netherlands,2.95,NLD
+New Caledonia,3.18,NCL
+New Zealand,0.53,NZL
+Nicaragua,1.74,NIC
+Nigeria,1.03,NGA
+Niger,0.13,NER
+Niue,4.10,NIU
+Northern Mariana Islands,4.10,MNP
+Norway,0.60,NOR
+Oman,0.48,OMN
+Pakistan,2.29,PAK
+Palau,2.61,PLW
+Panama,0.94,PAN
+Papua New Guinea,1.53,PNG
+Paraguay,1.99,PRY
+Peru,3.05,PER
+Philippines,0.74,PHL
+Poland,3.57,POL
+Portugal,0.18,PRT
+Puerto Rico,2.53,PRI
+Qatar,0.31,QAT
+Romania,0.15,ROU
+Russia,4.19,RUS
+Rwanda,0.69,RWA
+Saint Kitts and Nevis,2.37,KNA
+Saint Lucia,0.49,LCA
+Saint Martin,2.93,MAF
+Saint Pierre and Miquelon,4.13,SPM
+Saint Vincent and the Grenadines,3.56,VCT
+Samoa,1.65,WSM
+San Marino,3.15,SMR
+Sao Tome and Principe,1.18,STP
+Saudi Arabia,0.23,SAU
+Senegal,0.27,SEN
+Serbia,4.04,SRB
+Seychelles,2.81,SYC
+Sierra Leone,3.65,SLE
+Singapore,3.45,SGP
+Sint Maarten,4.98,SXM
+Slovakia,2.34,SVK
+Slovenia,1.21,SVN
+Solomon Islands,4.01,SLB
+Somalia,0.94,SOM
+South Africa,1.50,ZAF
+South Sudan,3.25,SSD
+Spain,4.34,ESP
+Sri Lanka,4.85,LKA
+Sudan,4.69,SDN
+Suriname,2.45,SUR
+Swaziland,0.16,SWZ
+Sweden,1.55,SWE
+Switzerland,4.93,CHE
+Syria,4.09,SYR
+Taiwan,3.96,TWN
+Tajikistan,3.42,TJK
+Tanzania,1.95,TZA
+Thailand,1.93,THA
+Timor-Leste,3.18,TLS
+Togo,4.94,TGO
+Tonga,3.06,TON
+Trinidad and Tobago,3.38,TTO
+Tunisia,3.65,TUN
+Turkey,2.40,TUR
+Turkmenistan,4.98,TKM
+Tuvalu,3.58,TUV
+Uganda,2.02,UGA
+Ukraine,3.19,UKR
+United Arab Emirates,1.57,ARE
+United Kingdom,3.61,GBR
+United States,1.38,USA
+Uruguay,3.54,URY
+Uzbekistan,3.54,UZB
+Vanuatu,1.98,VUT
+Venezuela,4.84,VEN
+Vietnam,2.33,VNM
+Virgin Islands,0.03,VGB
+West Bank,1.32,WBG
+Yemen,4.97,YEM
+Zambia,0.13,ZMB
+Zimbabwe,3.96,ZWE

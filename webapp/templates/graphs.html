@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block content %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<div id="graph" class="graph">
+		<h1 style="text-align: center;">Sentiment Over Time</h1>
+		<canvas id="myChart" width="400" height="200"></canvas>
+		<script>
+			const config = {
+				type: 'scatter',
+				data:    {
+                    datasets: [
+	                    {
+		                    label: "Samsung",
+		                    data: [
+			                    {% for value in dataA[0:-1] %}
+			                    {x: moment("{{ value[0] }}"), y: {{ value[1] }} },
+			                    {% endfor %}
+		                        {x: "{{ dataA[-1][0] }}", y: {{ dataA[-1][1] }} }
+		                    ],
+	                        backgroundColor: 'rgb(255, 128, 128)',
+	                        borderColor: 'rgb(255, 128, 128)',
+	                        fill: false
+	                    },
+                        {
+		                    label: "iPhone",
+		                    data: [
+			                    {% for value in dataB[0:-1] %}
+			                    {x: moment("{{ value[0] }}"), y: {{ value[1] }} },
+			                    {% endfor %}
+		                        {x: "{{ dataB[-1][0] }}", y: {{ dataB[-1][1] }} }
+		                    ],
+	                        backgroundColor: 'rgb(128, 128, 255)',
+	                        borderColor: 'rgb(128, 128, 255)',
+	                        fill: false
+	                    }
+                    ]
+				},
+				options: {
+				    scales: {
+						xAxis: {
+							type: 'time',
+							position: 'bottom'
+						},
+				        yAxis: {
+							beginAtZero: true,
+							min: 0,
+					        max: 5,
+					        stepValue: 0.5,
+							ticks: {
+                                {#steps: 10,#}
+
+                            }
+				        }
+				    }
+				  }
+			}
+			window.onload = function () {
+		        let ctx = document.getElementById("myChart");
+		        ctx.style.backgroundColor = 'rgba(180,180,180,255)';
+		        window.myLine = new Chart(ctx, config);
+            };
+		</script>
+    </div>
+{% endblock content %}

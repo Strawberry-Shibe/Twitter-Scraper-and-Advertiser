@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="login-tabs">
+	<div class="tab">
+	  <button class="tablinks" onclick="openTab(event, 'login')" id="defaultOpen">Login</button>
+	  <button class="tablinks" onclick="openTab(event, 'register')">Register</button>
+	</div>
+
+	<!-- Tab content -->
+	<div id="register" class="tabcontent">
+		<form method="POST" action="">
+			{{ register.csrf_token }}
+			{{ register.form_type(value='register') }}
+			{{ register.username(placeholder="Username", class="field") }}
+			{{ register.email(placeholder="Email", class="field") }}
+			{{ register.password(placeholder="Password", class="field") }}
+			{{ register.confirm_password(placeholder="Confirm Password", class="field") }}
+			{{ register.submit(class="butt") }}
+		</form>
+	</div>
+
+	<div id="login" class="tabcontent">
+		<form method="post" action="">
+			{{ login.csrf_token }}
+			{{ login.form_type(value='login') }}
+			{{ login.email(placeholder="Email or Username", class="field") }}
+			{{ login.password(placeholder="Password", class="field") }}
+			{{ login.submit(class="butt") }}
+		</form>
+	</div>
+
+	<script>
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+	</script>
+</div>
+{% endblock content %}

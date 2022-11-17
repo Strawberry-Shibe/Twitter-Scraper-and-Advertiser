@@ -1,0 +1,329 @@
+:root {
+	--collapse: none;
+	--collapse-inv: none;
+	--text-width: 1;
+	--text-width-inv: 0;
+	--icon-rotate: 0deg;
+	--icon-scale: 1;
+	--icon-align: left;
+	--width: 20vw;
+	--transition-time: 500ms;
+	--a-width: 100%;
+	--icon-width: 30px;
+	--logo-height: calc(var(--width)/5);
+
+	--dropdown: 0;
+	--dropdown-content-height: 100%;
+	--dropdown-content-overflow: visible;
+	--dropdown-content-margin: 12vw;
+}
+
+
+@media screen and (min-width: 900px) {
+	div#content {
+		padding-left: var(--width);
+		background: #1C1C1C;
+		transition: padding-left var(--transition-time);
+		height:100%;
+	}
+
+	div.top-bar {
+		display: none;
+		max-height: 0;
+	}
+
+	div.menubar ul {
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: stretch;
+	}
+
+	.menubar ul li.logo-outer {
+		/*height: var(--logo-height);*/
+		max-height: var(--logo-height);
+	}
+
+	svg.svg-logo {
+		padding: 1% 0;
+		max-height: 10vh;
+		/*height:auto;*/
+		display: inline-block;
+		transition: transform var(--transition-time);
+		transform: scaleX(var(--text-width-inv));
+	}
+
+	svg.big {
+		transform: scaleX(var(--text-width)) translateX(-101%) ;
+		transform-origin: right top;
+		vertical-align: top;
+	}
+
+	svg.small {
+		transform-origin: left center;
+	}
+
+	svg.svg-logo text {
+		font-family: 'Poppins', sans-serif;
+		color: #ffffff;
+		font-size: 58%;
+		text-align: center;
+		alignment-baseline: middle;
+		text-anchor: middle;
+		fill: #ffffff;
+		transform-origin: 50% 50%;
+		transform: translateX(50%) translateY(55%);
+	}
+
+	svg.svg-logo text.small {
+		transform: translateX(50%) translateY(60%);
+	}
+
+	svg.svg-logo text tspan {
+		alignment-baseline: middle;
+	}
+
+	svg.svg-logo text tspan.capital{
+		fill: #00bfbf;
+	}
+
+	.menubar ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		width: var(--width);
+		transition: width var(--transition-time);
+		background-color: #3f403f;
+		height: 100%; /* Full height */
+		position: fixed; /* Make it stick, even on scroll */
+		overflow: hidden; /* Enable scrolling if the sidenav has too much content */
+		white-space: nowrap;
+	}
+
+	.menubar li a {
+		display: inline-block;
+		color: #ffffff;
+		padding: 2% 5%;
+		text-decoration: none;
+		font-family: "Roboto", sans-serif;
+		font-size: 160%;
+		width: var(--a-width);
+		height: auto;
+		text-align: var(--icon-align);
+	}
+
+	.menubar li a img {
+		display: inline-block;
+		height: auto;
+		width: var(--icon-width);
+		text-align: var(--icon-align);
+		vertical-align: bottom;
+		filter: invert(100%);
+		transform-origin: center center;
+		transform: scaleX(-1) translate(-10%, 1%) scale(var(--icon-scale));
+		padding: calc(var(--text-width-inv)*14%);
+		transition: transform var(--transition-time), padding var(--transition-time);
+	}
+
+	.menubar li a img#collapse {
+		max-width: var(--icon-width);
+		transform-origin: center;
+		transform: rotate(var(--icon-rotate)) scaleX(-1) translate(5%, 0) scale(var(--icon-scale));
+	}
+
+	.menubar li a svg {
+		display: inline-block;
+		height: auto;
+		width: var(--icon-width);
+		text-align: var(--icon-align);
+		vertical-align: bottom;
+		filter: invert(100%);
+		transform-origin: center center;
+		transform: scaleX(-1) translate(-10%, 1%) scale(var(--icon-scale));
+		padding: calc(var(--text-width-inv)*14%);
+		transition: transform var(--transition-time), padding var(--transition-time);
+	}
+
+	.menubar li a svg#collapse {
+		max-width: var(--icon-width);
+		transform-origin: center;
+		transform: rotate(var(--icon-rotate)) scaleX(-1) translate(5%, 0) scale(var(--icon-scale));
+		stroke-width: 11%;
+		stroke-linecap: round;
+	}
+
+	.menubar li:last-of-type {
+		/*padding-top: 3%;*/
+		padding-bottom: 0.5vh;
+	}
+
+	.menubar span {
+		padding-left: 2%;
+		display: inline-block;
+		transform-origin: left center;
+		transform: scaleX(var(--text-width)) translateY(calc(var(--text-width-inv)*-30%)) scaleY(calc(var(--icon-scale)));
+		transition: transform var(--transition-time);
+	}
+
+
+	/* Change the link color on hover */
+	.menubar li a:hover {
+		background-color: #555;
+		color: white;
+	}
+
+	.menubar #active {
+		background-color: #00bfbf;
+		color: white;
+	}
+
+	.menubar #active a:hover {
+		background-color: #00a3a3;
+	}
+
+	.menubar li.bottom {
+		align-self: flex-end;
+		white-space: nowrap;
+		width: 100%;
+	}
+
+	.menubar li:not(.bottom) + .bottom {
+	  margin-top: auto;
+	}
+
+}
+@media screen and (max-width: 900px) {
+	body {overflow-x:hidden;}
+
+	div#topmargin{
+		height: 12vw;
+		max-height: var(--dropdown-content-margin);
+		display: block;
+		transition: max-height var(--transition-time);
+		background: #00bfbf;
+		z-index: 100;
+	}
+
+	div#content {
+		max-height: calc(var(--dropdown-content-height) - 12vw);
+		transition: max-height var(--transition-time);
+		overflow-y: var(--dropdown-content-overflow);
+		overflow-x: hidden;
+		background: #1C1C1C;
+		z-index: 100;
+	}
+
+	div.top-bar {
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: flex-start;
+		/*max-height: 5vh;*/
+		background-color: #00a3a3;
+		position: fixed;
+		width: 100%;
+		z-index: 150;
+	}
+
+	.expand-icon {
+		width: 12vw;
+		display: block;
+		fill: none;
+		stroke: white;
+		stroke-width: 3%;
+		/*padding: 0 1%;*/
+		justify-self: flex-end;
+	}
+
+	svg.svg-logo {
+		padding-left: 2%;
+		max-height: 50%;
+		max-width: 60vw;
+		display: block;
+		z-index: 200;
+		width: 72%;
+		/*align-self: flex-start;*/
+	}
+
+	svg.svg-logo text {
+		font-family: 'Poppins', sans-serif;
+		color: #ffffff;
+		font-size: 60%;
+		text-align: left;
+		alignment-baseline: middle;
+		text-anchor: start;
+		fill: #ffffff;
+		transform-origin: 50% 50%;
+		transform: translateY(79%);
+	}
+
+	.menubar {
+		/*display: block;*/
+	}
+
+	.menubar ul {
+		display: flex;
+		height: var(--dropdown);
+		overflow-y: hidden;
+		transition: height var(--transition-time);
+		width: 100vw;
+		background-color: #00bfbf;
+		z-index: 50;
+		flex-flow: column nowrap;
+		list-style-type: none;
+		justify-content: center;
+		padding: 0;
+		margin: 0;
+		text-align: center;
+	}
+
+	.menubar li a {
+		font-size: 256%;
+		text-decoration: none;
+		color: #ffffff;
+		width: 100%;
+		height: var(--dropdown);
+		vertical-align: middle;
+		z-index: 51;
+		transform: translateY(calc(var(--dropdown-content-height)*-1));
+	}
+
+	.menubar li:hover {
+		background-color: #00a3a3;
+	}
+
+	.menubar li.collapse {
+		display: none;
+	}
+
+	.menubar li a img.nav-icon {
+		display: inline-block;
+		padding-bottom: 3px;
+		height: auto;
+		width: 45px;
+		vertical-align: middle;
+		filter: brightness(0) saturate(100%) invert(100%);
+	}
+
+	.menubar li a svg.nav-icon {
+		display: inline-block;
+		padding-bottom: 3px;
+		height: auto;
+		width: 45px;
+		vertical-align: middle;
+		filter: brightness(0) saturate(100%) invert(100%);
+		transform: scaleX(-1);
+	}
+
+	li.logo-outer {
+		display: none;
+	}
+}
+
+path.dc {
+	fill: none;
+	stroke: black;
+}
+
+body.preload {
+	transition: all 0s linear !important;
+}

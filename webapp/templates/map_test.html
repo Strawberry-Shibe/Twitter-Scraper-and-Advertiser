@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+{#    <h1 style="text-align: center">Example Interactive Map</h1>#}
+    <div id="chart" class="chart" style="width:100%;height:100%;"></div>
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script>
+		let graphs = {{ graphJSON | safe }};
+		Plotly.plot("chart",graphs,{});
+	</script>
+{% endblock content %}

@@ -1,0 +1,42 @@
+svg.expand-icon path.line {
+    transition: all 500ms;
+    stroke-width: 4%;
+}
+
+svg.expand-icon path.line.one.arrow {transform-origin: calc((35/70) * 100%) calc((25/70) * 100%);}
+svg.expand-icon path.line.two.arrow {transform-origin: calc((50/70) * 100%) calc((35/70) * 100%);}
+svg.expand-icon path.line.three.arrow {transform-origin: calc((20/70) * 100%) calc((45/70) * 100%);}
+
+
+svg.expand-icon.collapsed:hover path.line.one{
+    transform-origin: calc((34/70) * 100%) calc((25/70) * 100%);
+    transform:  translateY(14%) rotate(90deg);
+}
+
+svg.expand-icon.collapsed:hover path.line.two{
+    transform-origin: calc((50/70) * 100%) calc((35/70) * 100%);
+    transform:  rotate(-45deg) scaleX(0.73);
+}
+
+svg.expand-icon.collapsed:hover path.line.three{
+    transform-origin: calc((20/70) * 100%) calc((45/70) * 100%);
+    transform: translateY(calc((-11/70) * 100%)) rotate(45deg) scaleX(0.74);
+}
+
+
+
+svg.expanded path.line.one {
+    transform-origin: calc((50/70) * 100%) calc((25/70) * 100%);
+    transform: rotate(-45deg) translateY(-4%) scaleX(1.18);
+}
+
+svg.expanded path.line.three {
+    transform-origin: calc((50/70) * 100%) calc((45/70) * 100%);
+    transform: rotate(45deg) translateY(4%) scaleX(1.18);
+}
+
+svg.expanded path.line.two {
+    transform-origin: 50% 50%;
+    /*transform: scale(0);*/
+    stroke-opacity: 0;
+}

@@ -1,0 +1,152 @@
+.dashboard {
+    display: flex;
+    padding: 0.5%;
+    margin-block: 0em;
+    flex-flow: row wrap;
+}
+
+div.dash-item {
+    border: #00a3a3 3px solid;
+    border-radius: 5px;
+    margin: 0.5%;
+    padding: 1%;
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: fit-content;
+    min-width: 350px;
+}
+
+div.dash-item h2 {
+    margin-block: inherit;
+    /*padding: 0 20%;*/
+    white-space: nowrap;
+    /*width: 100%;*/
+}
+
+div.multi-disp {
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    justify-content: center;
+}
+
+svg.circle-display {
+    width: auto;
+    /*max-height: 30vh;*/
+    z-index: 1;
+    position: relative;
+}
+
+svg.circle-display text {
+    alignment-baseline: middle;
+    text-align: center;
+    text-anchor: middle;
+    fill: #ffffff;
+    transform-origin: 50% 50%;
+    white-space: normal;
+}
+
+svg.circle-display text.circle-display-value {
+    transform: translateX(50%) translateY(51%);
+}
+
+svg.circle-display text.circle-display-label {
+    font-size: 10%;
+    transform: translateX(50%) translateY(70%);
+}
+
+svg.circular-scale {
+    width: auto;
+    /*max-height: 30vh;*/
+    z-index: 1;
+    position: relative;
+}
+
+svg.circular-scale path.fg-path {
+    stroke: #ffffff;
+    fill: none;
+}
+
+svg.circular-scale path.bg-path {
+    stroke: #333333;
+    fill: none;
+}
+
+svg.circular-scale text {
+    alignment-baseline: middle;
+    text-align: center;
+    text-anchor: middle;
+    fill: #ffffff;
+    transform-origin: 50% 50%;
+}
+
+svg.circular-scale text.circle-scale-value {
+    transform: translateX(49%) translateY(51%);
+}
+
+svg.circular-scale text.circle-scale-out-of {
+    font-size: 10%;
+    transform: translateX(49%) translateY(77%);
+}
+
+svg.circular-scale text.circle-scale-caption {
+    font-size: 10%;
+    transform: translateX(49%) translateY(92%);
+    font-weight: bold;
+}
+
+svg.circular-countdown {
+    width: auto;
+    /*max-height: 30vh;*/
+    z-index: 1;
+    position: relative;
+}
+
+svg.circular-countdown path.fg-path {
+    stroke: #ffffff;
+    fill: none;
+}
+
+svg.circular-countdown path.bg-path {
+    stroke: #333333;
+    fill: none;
+}
+
+svg.circular-countdown text {
+    alignment-baseline: middle;
+    text-align: center;
+    text-anchor: middle;
+    fill: #ffffff;
+    transform-origin: 50% 50%;
+}
+
+svg.circular-countdown text.circle-countdown-value {
+    transform: translateX(49%) translateY(51%);
+}
+
+svg.circular-countdown text.circle-countdown-out-of {
+    font-size: 10%;
+    transform: translateX(49%) translateY(77%);
+}
+
+svg.circular-countdown text.circle-countdown-caption {
+    font-size: 10%;
+    transform: translateX(49%) translateY(92%);
+    font-weight: bold;
+}
+
+
+svg.h2-replacement text {
+    font-size: 15%;
+    fill: #ffffff;
+    alignment-baseline: middle;
+    text-align: center;
+    text-anchor: middle;
+    transform: translateX(50%) translateY(50%);
+    font-weight: bold;
+}
+
+
+body.preload {
+	transition: all 0s linear !important;
+}
